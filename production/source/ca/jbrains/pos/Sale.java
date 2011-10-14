@@ -29,10 +29,6 @@ public class Sale {
 	}
 
 	public void onTotal() {
-		display.displayAmount(costOfProduct(lastScannedProduct));
-	}
-
-	public double costOfProduct(Product product) {
-		return product.price + (product.price * 0.05d) + (product.pstApplies ? (product.price * 0.08d) : 0.0d);
+		display.displayAmount(lastScannedProduct.cost());
 	}
 }

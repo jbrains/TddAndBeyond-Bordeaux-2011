@@ -8,4 +8,8 @@ public class Product {
 		this.price = price;
 		this.pstApplies = pstApplies;
 	}
+
+	public double cost() {
+		return price + (price * 0.05d) + (pstApplies ? (price * 0.08d) : 0.0d);
+	}
 }
