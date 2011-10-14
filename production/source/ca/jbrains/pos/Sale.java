@@ -11,7 +11,7 @@ public class Sale {
 
 	public void onBarcode(String barcode) {
 		if ("".equals(barcode)) {
-			display.text = "Scanning error: empty barcode";
+			displayEmptyBarcodeMessage();
 			return;
 		}
 		
@@ -20,5 +20,9 @@ public class Sale {
 		} else {
 			display.displayProductNotFoundMessage(barcode);
 		}
+	}
+
+	private void displayEmptyBarcodeMessage() {
+		display.text = "Scanning error: empty barcode";
 	}
 }
