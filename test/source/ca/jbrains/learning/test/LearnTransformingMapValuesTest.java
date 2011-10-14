@@ -2,13 +2,13 @@ package ca.jbrains.learning.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import org.junit.Test;
+
+import ca.jbrains.pos.Catalog;
+import ca.jbrains.pos.ParseFrenchNumbersAsDouble;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
@@ -35,29 +35,13 @@ public class LearnTransformingMapValuesTest {
 		};
 
 		assertEquals(expected,
-				transformValues(input, new Function<String, Number>() {
-					@Override
-					public Number apply(String each) {
-						try {
-							return NumberFormat
-									.getNumberInstance(Locale.FRANCE)
-									.parse(each).doubleValue();
-						} catch (ParseException wrapped) {
-							throw new RuntimeException(
-									"Unable to parse number", wrapped);
-						}
-					}
-				}));
+				transformValues(input, new ParseFrenchNumbersAsDouble()));
 	}
 
-	private Map<String, Number> transformValues(Map<String, String> input,
-			Function<String, Number> function) {
+	public static Map<String, Number> transformValues(
+			Map<String, String> input, Function<String, Number> function) {
 
-		Map<String, Number> transformed = Maps.newHashMap();
-		for (Map.Entry<String, String> eachEntry : input.entrySet()) {
-			transformed.put(eachEntry.getKey(),
-					function.apply(eachEntry.getValue()));
-		}
-		return transformed;
+		// I ended up using this in production
+		return Catalog.transformValues(input, function);
 	}
 }

@@ -32,7 +32,7 @@ public class Sale {
 		return 11.3d;
 	}
 
-	private String formatAmount(double amount) {
+	public static String formatAmount(double amount) {
 		return String.format(Locale.FRANCE, "EUR %.2f", amount);
 	}
 }
