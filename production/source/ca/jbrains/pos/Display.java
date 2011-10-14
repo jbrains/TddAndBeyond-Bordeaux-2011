@@ -1,7 +1,7 @@
 package ca.jbrains.pos;
 
 public class Display {
-	String text;
+	private String text;
 
 	public String getText() {
 		return text;
@@ -16,6 +16,6 @@ public class Display {
 	}
 
 	public void displayEmptyBarcodeMessage(Sale sale) {
-		text = "Scanning error: empty barcode";
+		this.text = "Scanning error: empty barcode";
 	}
 }
