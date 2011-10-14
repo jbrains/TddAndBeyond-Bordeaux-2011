@@ -36,21 +36,6 @@ public class SellOneItemTest {
 	}
 
 	@Test
-	public void yetAnotherProductFound() throws Exception {
-		Display display = new Display();
-		Sale sale = new Sale(display, new Catalog(
-				new HashMap<String, String>() {
-					{
-						put("34567", "EUR 29,01");
-					}
-				}));
-
-		sale.onBarcode("34567");
-
-		assertEquals("EUR 29,01", display.getText());
-	}
-
-	@Test
 	public void productNotFound() throws Exception {
 		Display display = new Display();
 		Sale sale = new Sale(display, new Catalog(
