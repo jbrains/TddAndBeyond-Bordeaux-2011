@@ -42,6 +42,11 @@ public class LearnTransformingMapValuesTest {
 			Map<String, String> input, Function<String, Number> function) {
 
 		// I ended up using this in production
-		return Catalog.transformValues(input, function);
+		Map<String, Number> transformed = Maps.newHashMap();
+		for (Map.Entry<String, String> eachEntry : input.entrySet()) {
+			transformed.put(eachEntry.getKey(),
+					function.apply(eachEntry.getValue()));
+		}
+		return transformed;
 	}
 }
