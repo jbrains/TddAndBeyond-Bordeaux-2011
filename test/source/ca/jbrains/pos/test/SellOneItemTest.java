@@ -7,6 +7,10 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
+import ca.jbrains.pos.Catalog;
+import ca.jbrains.pos.Display;
+import ca.jbrains.pos.Sale;
+
 public class SellOneItemTest {
 	@Test
 	public void productFound() throws Exception {
