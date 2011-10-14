@@ -3,6 +3,8 @@ package ca.jbrains.pos;
 public class Sale {
 	private final Display display;
 	private final Catalog catalog;
+	private double priceOfLastScannedProduct;
+	private boolean pstAppliesToLastScannedProduct;
 
 	public Sale(Display display, Catalog catalog) {
 		this.display = display;
@@ -16,18 +18,19 @@ public class Sale {
 		}
 
 		if (catalog.hasBarcode(barcode)) {
-			double price = catalog.findPrice(barcode);
-			display.displayAmount(price);
+			priceOfLastScannedProduct = catalog.findPrice(barcode);
+			pstAppliesToLastScannedProduct = true;
+			display.displayAmount(priceOfLastScannedProduct);
 		} else {
 			display.displayProductNotFoundMessage(barcode);
 		}
 	}
 
 	public void onTotal() {
-		display.displayAmount(costOfProduct());
+		display.displayAmount(costOfProduct(priceOfLastScannedProduct, pstAppliesToLastScannedProduct));
 	}
 
-	private double costOfProduct() {
-		return 11.3d;
+	public double costOfProduct(double price, boolean pstApplies) {
+		return price + (price * 0.05d) + (pstApplies ? (price * 0.08d) : 0.0d);
 	}
 }
