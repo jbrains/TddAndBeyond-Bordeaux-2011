@@ -5,6 +5,7 @@ public class Sale {
 	private final Catalog catalog;
 	private double priceOfLastScannedProduct;
 	private boolean pstAppliesToLastScannedProduct;
+	private Product lastScannedProduct;
 
 	public Sale(Display display, Catalog catalog) {
 		this.display = display;
@@ -20,6 +21,7 @@ public class Sale {
 		if (catalog.hasBarcode(barcode)) {
 			priceOfLastScannedProduct = catalog.findPrice(barcode);
 			pstAppliesToLastScannedProduct = true;
+			lastScannedProduct = new Product(priceOfLastScannedProduct, pstAppliesToLastScannedProduct);
 			display.displayAmount(priceOfLastScannedProduct);
 		} else {
 			display.displayProductNotFoundMessage(barcode);
@@ -27,7 +29,7 @@ public class Sale {
 	}
 
 	public void onTotal() {
-		display.displayAmount(costOfProduct(new Product(priceOfLastScannedProduct, pstAppliesToLastScannedProduct)));
+		display.displayAmount(costOfProduct(lastScannedProduct));
 	}
 
 	public double costOfProduct(Product product) {
