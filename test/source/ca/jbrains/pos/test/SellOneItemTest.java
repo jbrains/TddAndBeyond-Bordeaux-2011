@@ -8,40 +8,6 @@ import java.util.HashMap;
 import org.junit.Test;
 
 public class SellOneItemTest {
-	public static class Display {
-		private String text;
-
-		public String getText() {
-			return text;
-		}
-
-		public void displayPrice(String price) {
-			this.text = price;
-		}
-
-		public void displayProductNotFoundMessage(String barcode) {
-			this.text = "No product found for " + barcode;
-		}
-	}
-
-	public static class Sale {
-		private final Display display;
-		private final Catalog catalog;
-
-		public Sale(Display display, Catalog catalog) {
-			this.display = display;
-			this.catalog = catalog;
-		}
-
-		public void onBarcode(String barcode) {
-			if (catalog.hasBarcode(barcode)) {
-				display.displayPrice(catalog.findPrice(barcode));
-			} else {
-				display.displayProductNotFoundMessage(barcode);
-			}
-		}
-	}
-
 	@Test
 	public void productFound() throws Exception {
 		Display display = new Display();
