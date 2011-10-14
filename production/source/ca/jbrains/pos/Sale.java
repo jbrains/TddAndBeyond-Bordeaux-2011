@@ -25,7 +25,11 @@ public class Sale {
 	}
 
 	public void onTotal() {
-		display.displayTotal(formatAmount(11.3d));
+		display.displayTotal(formatAmount(costOfProduct()));
+	}
+
+	private double costOfProduct() {
+		return 11.3d;
 	}
 
 	private String formatAmount(double amount) {

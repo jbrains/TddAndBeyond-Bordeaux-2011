@@ -15,7 +15,7 @@ public class DisplaySaleTotalTest {
 	public void happyPath() throws Exception {
 		Display display = new Display();
 		Sale sale = new Sale(display,
-				new Catalog(Collections.<String, String> singletonMap("12345",
+				Catalog.withFormattedPrices(Collections.<String, String> singletonMap("12345",
 						"EUR 10,00")));
 
 		sale.onBarcode("12345");
