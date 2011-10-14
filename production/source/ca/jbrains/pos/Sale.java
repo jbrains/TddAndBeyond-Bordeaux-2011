@@ -27,10 +27,10 @@ public class Sale {
 	}
 
 	public void onTotal() {
-		display.displayAmount(costOfProduct(priceOfLastScannedProduct, pstAppliesToLastScannedProduct));
+		display.displayAmount(costOfProduct(new Product(priceOfLastScannedProduct, pstAppliesToLastScannedProduct)));
 	}
 
-	public double costOfProduct(double price, boolean pstApplies) {
-		return price + (price * 0.05d) + (pstApplies ? (price * 0.08d) : 0.0d);
+	public double costOfProduct(Product product) {
+		return product.price + (product.price * 0.05d) + (product.pstApplies ? (product.price * 0.08d) : 0.0d);
 	}
 }
