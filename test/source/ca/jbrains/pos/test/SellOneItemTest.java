@@ -1,5 +1,6 @@
 package ca.jbrains.pos.test;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Collections;
@@ -43,5 +44,15 @@ public class SellOneItemTest {
 		sale.onBarcode("99999");
 
 		assertEquals("No product found for 99999", display.getText());
+	}
+
+	@Test
+	public void emptyBarcode() throws Exception {
+		Display display = new Display();
+		Sale sale = new Sale(display, new Catalog(
+				Collections.<String, String> emptyMap()));
+
+		sale.onBarcode("");
+		assertEquals("Scanning error: empty barcode", display.getText());
 	}
 }

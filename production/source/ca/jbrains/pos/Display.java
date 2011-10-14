@@ -1,7 +1,7 @@
 package ca.jbrains.pos;
 
 public class Display {
-	private String text;
+	String text;
 
 	public String getText() {
 		return text;

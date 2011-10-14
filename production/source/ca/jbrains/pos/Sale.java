@@ -10,6 +10,11 @@ public class Sale {
 	}
 
 	public void onBarcode(String barcode) {
+		if ("".equals(barcode)) {
+			display.text = "Scanning error: empty barcode";
+			return;
+		}
+		
 		if (catalog.hasBarcode(barcode)) {
 			display.displayPrice(catalog.findPrice(barcode));
 		} else {
