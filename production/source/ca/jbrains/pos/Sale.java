@@ -1,5 +1,7 @@
 package ca.jbrains.pos;
 
+import java.util.Locale;
+
 public class Sale {
 	private final Display display;
 	private final Catalog catalog;
@@ -23,10 +25,10 @@ public class Sale {
 	}
 
 	public void onTotal() {
-		display.displayTotal("EUR " + formatAmount(11.3d));
+		display.displayTotal(formatAmount(11.3d));
 	}
 
 	private String formatAmount(double amount) {
-		return "11,30";
+		return String.format(Locale.FRANCE, "EUR %.2f", amount);
 	}
 }
