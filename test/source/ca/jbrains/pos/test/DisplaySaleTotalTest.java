@@ -14,13 +14,12 @@ public class DisplaySaleTotalTest {
 	@Test
 	public void happyPath() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display,
-				Catalog.withFormattedPrices(Collections.<String, String> singletonMap("12345",
-						"EUR 10,00")));
+		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
+				.<String, Number> singletonMap("12345", 10.0d)));
 
 		sale.onBarcode("12345");
 		sale.onTotal();
-		
+
 		assertEquals("EUR 11,30", display.getText());
 	}
 }

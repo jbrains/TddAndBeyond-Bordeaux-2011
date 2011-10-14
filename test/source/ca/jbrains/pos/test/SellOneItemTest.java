@@ -14,8 +14,8 @@ public class SellOneItemTest {
 	@Test
 	public void productFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, Catalog.withFormattedPrices(Collections
-				.<String, String> singletonMap("12345", "EUR 7,50")));
+		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
+				.<String, Number> singletonMap("12345", 7.5d)));
 
 		sale.onBarcode("12345");
 
@@ -26,7 +26,7 @@ public class SellOneItemTest {
 	public void anotherProductFound() throws Exception {
 		Display display = new Display();
 		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
-		.<String, Number> singletonMap("23456", 12.75d)));
+				.<String, Number> singletonMap("23456", 12.75d)));
 
 		sale.onBarcode("23456");
 
@@ -36,8 +36,8 @@ public class SellOneItemTest {
 	@Test
 	public void productNotFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, Catalog.withFormattedPrices(Collections
-				.<String, String> emptyMap()));
+		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
+				.<String, Number> emptyMap()));
 
 		sale.onBarcode("99999");
 
