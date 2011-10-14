@@ -16,11 +16,7 @@ public class SellOneItemTest {
 	public void productFound() throws Exception {
 		Display display = new Display();
 		Sale sale = new Sale(display, new Catalog(
-				new HashMap<String, String>() {
-					{
-						put("12345", "EUR 7,50");
-					}
-				}));
+				Collections.<String, String> singletonMap("12345", "EUR 7,50")));
 
 		sale.onBarcode("12345");
 
@@ -30,12 +26,9 @@ public class SellOneItemTest {
 	@Test
 	public void anotherProductFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, new Catalog(
-				new HashMap<String, String>() {
-					{
-						put("23456", "EUR 12,75");
-					}
-				}));
+		Sale sale = new Sale(display,
+				new Catalog(Collections.<String, String> singletonMap("23456",
+						"EUR 12,75")));
 
 		sale.onBarcode("23456");
 
