@@ -3,7 +3,6 @@ package ca.jbrains.pos.test;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Collections;
-import java.util.HashMap;
 
 import org.junit.Test;
 
