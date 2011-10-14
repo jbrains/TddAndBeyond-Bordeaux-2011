@@ -18,4 +18,8 @@ public class Display {
 	public void displayEmptyBarcodeMessage() {
 		this.text = "Scanning error: empty barcode";
 	}
+
+	public void displayTotal(String total) {
+		this.text = total;
+	}
 }
