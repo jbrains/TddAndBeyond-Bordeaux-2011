@@ -1,6 +1,5 @@
 package ca.jbrains.learning.test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import java.text.NumberFormat;
@@ -27,8 +26,7 @@ public class LearnCurrencyFormatTest {
 
 	@Test
 	public void doItMoreDirectly() throws Exception {
-		assertEquals("EUR 11,45",
-				formatAmountAsEuroThePreferredWay(11.45d));
+		assertEquals("EUR 11,45", formatAmountAsEuroThePreferredWay(11.45d));
 	}
 
 	private String formatAmountAsEuroThePreferredWay(double amount) {
