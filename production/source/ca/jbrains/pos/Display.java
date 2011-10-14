@@ -14,4 +14,8 @@ public class Display {
 	public void displayProductNotFoundMessage(String barcode) {
 		this.text = "No product found for " + barcode;
 	}
+
+	public void displayEmptyBarcodeMessage(Sale sale) {
+		text = "Scanning error: empty barcode";
+	}
 }
