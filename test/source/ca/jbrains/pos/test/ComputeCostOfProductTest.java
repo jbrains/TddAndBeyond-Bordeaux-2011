@@ -1,22 +1,12 @@
 package ca.jbrains.pos.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import ca.jbrains.pos.Product;
-import ca.jbrains.pos.Sale;
 
 public class ComputeCostOfProductTest {
-	private Sale sale;
-
-	@Before
-	public void setUp() {
-		// SMELL
-		sale = new Sale(null, null);
-	}
-
 	@Test
 	public void gstAndPst() throws Exception {
 		assertEquals(11.3d, new Product(10.0d, true).cost(), 0.001d);
