@@ -4,33 +4,17 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.List;
 
 import org.junit.Test;
 
 import ca.jbrains.pos.Display;
 import ca.jbrains.pos.Price;
 import ca.jbrains.pos.TextDisplay;
+import ca.jbrains.util.Lines;
 
-import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 
 public class TextDisplayTest extends DisplayContract {
-	public static class MoreLists {
-		public static <T> List<T> chomp(List<T> list) {
-			return list.subList(0, list.size() - 1);
-		}
-	}
-
-	public static class Lines {
-		public static List<String> parseChompingFinalBlankLine(
-				String multilineString) {
-
-			return MoreLists.chomp(Lists.newArrayList(Splitter.on("\n").split(
-					multilineString)));
-		}
-	}
-
 	@Test
 	public void displayNonNullPrice() throws Exception {
 		StringWriter canvas = new StringWriter();
