@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import ca.jbrains.pos.Catalog;
 import ca.jbrains.pos.ParseFrenchNumbersAsDouble;
 
 import com.google.common.base.Function;

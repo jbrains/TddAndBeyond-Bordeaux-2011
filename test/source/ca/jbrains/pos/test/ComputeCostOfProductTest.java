@@ -16,4 +16,9 @@ public class ComputeCostOfProductTest {
 	public void gstOnly() throws Exception {
 		assertEquals(10.5d, new Product(10.0d, false).cost(), 0.001d);
 	}
+
+	@Test
+	public void rounding() throws Exception {
+		assertEquals(10.37d, new Product(9.18d, true).cost(), 0.001d);
+	}
 }

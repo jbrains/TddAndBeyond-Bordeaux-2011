@@ -17,17 +17,11 @@ public class Sale {
 		}
 
 		if (catalog.hasBarcode(barcode)) {
-			lastScannedProduct = findProductByBarcode(barcode);
-			display.displayAmount(lastScannedProduct.price);
+			lastScannedProduct = catalog.findProduct(barcode);
+			display.displayAmount(lastScannedProduct.getPrice());
 		} else {
 			display.displayProductNotFoundMessage(barcode);
 		}
-	}
-
-	private Product findProductByBarcode(String barcode) {
-		double priceOfLastScannedProduct = catalog.findPrice(barcode);
-		boolean pstAppliesToLastScannedProduct = true;
-		return new Product(priceOfLastScannedProduct, pstAppliesToLastScannedProduct);
 	}
 
 	public void onTotal() {

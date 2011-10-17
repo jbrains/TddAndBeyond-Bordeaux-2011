@@ -8,14 +8,16 @@ import org.junit.Test;
 
 import ca.jbrains.pos.Catalog;
 import ca.jbrains.pos.Display;
+import ca.jbrains.pos.Product;
 import ca.jbrains.pos.Sale;
 
 public class SellOneItemTest {
 	@Test
 	public void productFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
-				.<String, Number> singletonMap("12345", 7.5d)));
+		Sale sale = new Sale(display, Catalog.withProducts(Collections
+				.<String, Product> singletonMap("12345",
+						new Product(7.5d, true))));
 
 		sale.onBarcode("12345");
 
@@ -25,8 +27,9 @@ public class SellOneItemTest {
 	@Test
 	public void anotherProductFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
-				.<String, Number> singletonMap("23456", 12.75d)));
+		Sale sale = new Sale(display, new Catalog(
+				Collections.<String, Product> singletonMap("23456",
+						new Product(12.75d, true))));
 
 		sale.onBarcode("23456");
 
@@ -36,8 +39,8 @@ public class SellOneItemTest {
 	@Test
 	public void productNotFound() throws Exception {
 		Display display = new Display();
-		Sale sale = new Sale(display, Catalog.withUnformattedPrices(Collections
-				.<String, Number> emptyMap()));
+		Sale sale = new Sale(display, Catalog.withProducts(Collections
+				.<String, Product> emptyMap()));
 
 		sale.onBarcode("99999");
 

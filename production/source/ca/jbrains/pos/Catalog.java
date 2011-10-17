@@ -3,23 +3,21 @@ package ca.jbrains.pos;
 import java.util.Map;
 
 public class Catalog {
-	private Map<String, Number> pricesByBarcode;
+	private final Map<String, Product> productsByBarcode;
 
-	public Catalog(Map<String, Number> pricesByBarcode) {
-		this.pricesByBarcode = pricesByBarcode;
+	public Catalog(Map<String, Product> productsByBarcode) {
+		this.productsByBarcode = productsByBarcode;
 	}
 
 	public boolean hasBarcode(String barcode) {
-		return pricesByBarcode.containsKey(barcode);
+		return productsByBarcode.containsKey(barcode);
 	}
 
-	public double findPrice(String barcode) {
-		return pricesByBarcode.get(barcode).doubleValue();
+	public Product findProduct(String barcode) {
+		return productsByBarcode.get(barcode);
 	}
 
-	public static Catalog withUnformattedPrices(
-			Map<String, Number> unformattedPricesByBarcode) {
-		return new Catalog(unformattedPricesByBarcode);
+	public static Catalog withProducts(Map<String, Product> productsByBarcode) {
+		return new Catalog(productsByBarcode);
 	}
-
 }
