@@ -17,7 +17,7 @@ public class Price {
 	public boolean equals(Object other) {
 		if (other instanceof Price) {
 			Price that = (Price) other;
-			return this.valueInEuro == that.valueInEuro;
+			return this.getValueInEuro() == that.getValueInEuro();
 		} else {
 			return false;
 		}
@@ -25,15 +25,19 @@ public class Price {
 
 	@Override
 	public int hashCode() {
-		return valueInEuro;
+		return getValueInEuro();
 	}
 
 	@Override
 	public String toString() {
-		return String.valueOf(valueInEuro) + "Û";
+		return String.valueOf(getValueInEuro()) + "Û";
 	}
 
 	public String format() {
-		return String.format(Locale.FRANCE, "EUR %.2f", (double) valueInEuro);
+		return String.format(Locale.FRANCE, "EUR %.2f", (double) getValueInEuro());
+	}
+
+	public int getValueInEuro() {
+		return valueInEuro;
 	}
 }
