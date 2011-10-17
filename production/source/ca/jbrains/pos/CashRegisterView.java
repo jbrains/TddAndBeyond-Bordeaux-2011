@@ -1,7 +1,7 @@
 package ca.jbrains.pos;
 
 
-public class CashRegisterView implements Display {
+public class CashRegisterView implements CustomerViewableCashRegisterDisplay {
 	private final TextFormat textFormat;
 	private final Canvas canvas;
 

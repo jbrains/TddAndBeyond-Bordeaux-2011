@@ -1,6 +1,6 @@
 package ca.jbrains.pos;
 
-public class FrenchFormatAndCanvasDisplay implements Display {
+public class FrenchFormatAndCanvasDisplay implements CustomerViewableCashRegisterDisplay {
 	private Canvas canvas;
 
 	public FrenchFormatAndCanvasDisplay(Canvas canvas) {

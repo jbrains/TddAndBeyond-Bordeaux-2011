@@ -2,10 +2,10 @@ package ca.jbrains.pos;
 
 
 public class SaleController implements ScanBarcodeListener {
-	private final Display display;
+	private final CustomerViewableCashRegisterDisplay display;
 	private final Catalog catalog;
 
-	public SaleController(Catalog catalog, Display display) {
+	public SaleController(Catalog catalog, CustomerViewableCashRegisterDisplay display) {
 		this.catalog = catalog;
 		this.display = display;
 	}

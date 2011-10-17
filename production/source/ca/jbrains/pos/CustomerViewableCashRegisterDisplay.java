@@ -1,7 +1,7 @@
 package ca.jbrains.pos;
 
 
-public interface Display {
+public interface CustomerViewableCashRegisterDisplay {
 	void displayPrice(Price price);
 
 	void displayProductNotFoundMessage(String barcode);

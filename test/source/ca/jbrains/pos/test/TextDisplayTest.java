@@ -10,7 +10,7 @@ import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.jbrains.pos.Display;
+import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
 import ca.jbrains.pos.FrenchFormatAndCanvasDisplay;
 import ca.jbrains.pos.Price;
 import ca.jbrains.pos.PrintWriterCanvas;
@@ -25,7 +25,7 @@ public class TextDisplayTest extends DisplayContract {
 	@Test
 	public void displayNonNullPrice() throws Exception {
 		StringWriter canvas = new StringWriter();
-		Display display = createDisplayWritingTo(canvas);
+		CustomerViewableCashRegisterDisplay display = createDisplayWritingTo(canvas);
 		display.displayPrice(Price.euro(12));
 		assertEquals(Lists.newArrayList("EUR 12,00"),
 				Lines.parseChompingFinalBlankLine(canvas.toString()));
@@ -35,7 +35,7 @@ public class TextDisplayTest extends DisplayContract {
 	public void displayProductNotFoundMessageWithNonNullBarcode()
 			throws Exception {
 		StringWriter canvas = new StringWriter();
-		Display display = createDisplayWritingTo(canvas);
+		CustomerViewableCashRegisterDisplay display = createDisplayWritingTo(canvas);
 		display.displayProductNotFoundMessage("99999");
 		assertEquals(Lists.newArrayList("No product found for 99999"),
 				Lines.parseChompingFinalBlankLine(canvas.toString()));
@@ -44,7 +44,7 @@ public class TextDisplayTest extends DisplayContract {
 	@Override
 	public void displayEmptyBarcodeMessage() throws Exception {
 		StringWriter canvas = new StringWriter();
-		Display display = createDisplayWritingTo(canvas);
+		CustomerViewableCashRegisterDisplay display = createDisplayWritingTo(canvas);
 		display.displayEmptyBarcodeMessage();
 		assertEquals(Lists.newArrayList("Scanning error: empty barcode"),
 				Lines.parseChompingFinalBlankLine(canvas.toString()));

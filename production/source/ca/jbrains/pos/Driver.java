@@ -44,10 +44,10 @@ public class Driver {
 				});
 		SaleController saleController = new SaleController(model, view);
 
-//		saleController.onBarcode("12345");
+//	saleController.onBarcode("12345");
 //		saleController.onBarcode("23456");
 //		saleController.onBarcode("34567");
-//		saleController.onBarcode("");
+		saleController.onBarcode("");
 //		saleController.onBarcode("99999");
 //		saleController.onBarcode(null);
 		canvas.flush();

@@ -23,10 +23,10 @@ public class CashRegisterViewTest {
 
 		mockery.checking(new Expectations() {
 			{
-				oneOf(textFormat).format(Price.euro(12));
-				will(returnValue("12Û"));
+				allowing(textFormat).format(Price.euro(12));
+				will(returnValue("doesn't matter"));
 
-				oneOf(canvas).printMessage("12Û");
+				oneOf(canvas).printMessage("doesn't matter");
 			}
 		});
 

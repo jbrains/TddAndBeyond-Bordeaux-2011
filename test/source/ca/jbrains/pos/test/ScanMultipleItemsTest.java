@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.Catalog;
-import ca.jbrains.pos.Display;
+import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
 import ca.jbrains.pos.Price;
 import ca.jbrains.pos.SaleController;
 
@@ -28,7 +28,7 @@ public class ScanMultipleItemsTest {
 				Price.euro(25), Price.euro(40));
 
 		final Catalog catalog = mockery.mock(Catalog.class);
-		final Display display = mockery.mock(Display.class);
+		final CustomerViewableCashRegisterDisplay display = mockery.mock(CustomerViewableCashRegisterDisplay.class);
 
 		mockery.checking(new Expectations() {
 			{

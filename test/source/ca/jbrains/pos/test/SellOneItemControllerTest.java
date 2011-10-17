@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.Catalog;
-import ca.jbrains.pos.Display;
+import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
 import ca.jbrains.pos.Price;
 import ca.jbrains.pos.SaleController;
 
@@ -18,7 +18,7 @@ public class SellOneItemControllerTest {
 	@Test
 	public void productFound() throws Exception {
 		final Catalog catalog = mockery.mock(Catalog.class);
-		final Display display = mockery.mock(Display.class);
+		final CustomerViewableCashRegisterDisplay display = mockery.mock(CustomerViewableCashRegisterDisplay.class);
 
 		mockery.checking(new Expectations() {
 			{
@@ -39,7 +39,7 @@ public class SellOneItemControllerTest {
 	@Test
 	public void productNotFound() throws Exception {
 		final Catalog catalog = mockery.mock(Catalog.class);
-		final Display display = mockery.mock(Display.class);
+		final CustomerViewableCashRegisterDisplay display = mockery.mock(CustomerViewableCashRegisterDisplay.class);
 
 		mockery.checking(new Expectations() {
 			{
@@ -60,7 +60,7 @@ public class SellOneItemControllerTest {
 	@Test
 	public void emptyBarcode() throws Exception {
 		final Catalog catalog = mockery.mock(Catalog.class);
-		final Display display = mockery.mock(Display.class);
+		final CustomerViewableCashRegisterDisplay display = mockery.mock(CustomerViewableCashRegisterDisplay.class);
 
 		mockery.checking(new Expectations() {
 			{
