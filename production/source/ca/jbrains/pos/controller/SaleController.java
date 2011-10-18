@@ -1,7 +1,7 @@
 package ca.jbrains.pos.controller;
 
-import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Model;
 import ca.jbrains.pos.model.Catalog;
+import ca.jbrains.pos.model.Model;
 import ca.jbrains.pos.model.Price;
 import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 

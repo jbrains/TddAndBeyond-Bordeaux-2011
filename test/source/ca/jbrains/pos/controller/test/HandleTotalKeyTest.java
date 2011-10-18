@@ -1,6 +1,5 @@
 package ca.jbrains.pos.controller.test;
 
-import lombok.Data;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -9,23 +8,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.controller.SaleController;
-import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.model.Model;
+import ca.jbrains.pos.model.Sale;
 import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 
 @RunWith(JMock.class)
 public class HandleTotalKeyTest {
-	@Data
-	public static class Sale {
-		public Price getTotal() {
-			return new Price(-762);
-		}
-	}
-
-	public interface Model {
-		Sale getSale();
-	}
-
-	private Mockery mockery = new Mockery();
+	private final Mockery mockery = new Mockery();
 
 	@Test
 	public void displaysSaleTotal() throws Exception {

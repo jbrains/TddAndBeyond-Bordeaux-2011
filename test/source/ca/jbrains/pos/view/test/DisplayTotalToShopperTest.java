@@ -1,42 +1,60 @@
 package ca.jbrains.pos.view.test;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.StringWriter;
-
+import org.jmock.Expectations;
+import org.jmock.Mockery;
+import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Sale;
+import ca.jbrains.pos.model.NoSaleInProgressMessage;
 import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.model.Sale;
 import ca.jbrains.pos.view.Canvas;
 import ca.jbrains.pos.view.CashRegisterView;
-import ca.jbrains.pos.view.FrenchTextFormat;
+import ca.jbrains.pos.view.TextFormat;
 
+@RunWith(JMock.class)
 public class DisplayTotalToShopperTest {
-	public static class StringWriterCanvas implements Canvas {
-		private final StringWriter output;
-
-		public StringWriterCanvas(StringWriter output) {
-			this.output = output;
-		}
-
-		@Override
-		public void printMessage(String message) {
-			output.append(message);
-		}
-
-	}
+	private final Mockery mockery = new Mockery();
+	private final Canvas canvas = mockery.mock(Canvas.class);
+	private final TextFormat textFormat = mockery.mock(TextFormat.class);
+	private final CashRegisterView cashRegisterView = new CashRegisterView(
+			textFormat, canvas);
 
 	@Test
 	public void completedSale() throws Exception {
-		StringWriter output = new StringWriter();
-		new CashRegisterView(new FrenchTextFormat(), new StringWriterCanvas(
-				output)).displayTotal(new Sale() {
+		mockery.checking(new Expectations() {
+			{
+				allowing(textFormat).format(with(any(Price.class)));
+				will(returnValue("formatted total"));
+
+				oneOf(canvas).printMessage("formatted total");
+			}
+		});
+
+		cashRegisterView.displayTotal(new Sale() {
 			public Price getTotal() {
 				return Price.euro(100);
 			}
 		});
+	}
 
-		assertEquals("EUR 100,00", output.toString());
+	@Test
+	public void saleWithNoItemsYet() throws Exception {
+		mockery.checking(new Expectations() {
+			{
+				allowing(textFormat).format(
+						with(any(NoSaleInProgressMessage.class)));
+				will(returnValue("no sale in progress message"));
+
+				oneOf(canvas).printMessage("no sale in progress message");
+			}
+		});
+
+		cashRegisterView.displayTotal(new Sale() {
+			public Price getTotal() {
+				return null;
+			}
+		});
 	}
 }

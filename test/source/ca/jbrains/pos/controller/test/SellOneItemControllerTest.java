@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.controller.SaleController;
-import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Model;
 import ca.jbrains.pos.model.Catalog;
+import ca.jbrains.pos.model.Model;
 import ca.jbrains.pos.model.Price;
 import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 
