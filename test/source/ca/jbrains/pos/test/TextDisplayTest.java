@@ -5,10 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import org.jmock.Mockery;
-import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
 import ca.jbrains.pos.FrenchFormatAndCanvasDisplay;
@@ -18,10 +15,7 @@ import ca.jbrains.util.Lines;
 
 import com.google.common.collect.Lists;
 
-@RunWith(JMock.class)
 public class TextDisplayTest extends DisplayContract {
-	private Mockery mockery = new Mockery();
-
 	@Test
 	public void displayNonNullPrice() throws Exception {
 		StringWriter canvas = new StringWriter();
@@ -50,8 +44,9 @@ public class TextDisplayTest extends DisplayContract {
 				Lines.parseChompingFinalBlankLine(canvas.toString()));
 	}
 
-	private FrenchFormatAndCanvasDisplay createDisplayWritingTo(StringWriter canvas) {
-		return new FrenchFormatAndCanvasDisplay(new PrintWriterCanvas(new PrintWriter(canvas,
-				true)));
+	private FrenchFormatAndCanvasDisplay createDisplayWritingTo(
+			StringWriter canvas) {
+		return new FrenchFormatAndCanvasDisplay(new PrintWriterCanvas(
+				new PrintWriter(canvas, true)));
 	}
 }
