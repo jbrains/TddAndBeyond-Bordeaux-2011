@@ -3,7 +3,6 @@ package ca.jbrains.pos.view;
 import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Sale;
 import ca.jbrains.pos.model.Price;
 
-
 public class CashRegisterView implements CustomerViewableCashRegisterDisplay {
 	private final TextFormat textFormat;
 	private final Canvas canvas;
@@ -29,6 +28,7 @@ public class CashRegisterView implements CustomerViewableCashRegisterDisplay {
 	}
 
 	public void displayTotal(Sale sale) {
+		canvas.printMessage(textFormat.format(sale.getTotal()));
 	}
 
 }

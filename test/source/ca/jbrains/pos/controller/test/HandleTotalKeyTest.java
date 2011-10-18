@@ -9,12 +9,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.controller.SaleController;
+import ca.jbrains.pos.model.Price;
 import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 
 @RunWith(JMock.class)
 public class HandleTotalKeyTest {
 	@Data
 	public static class Sale {
+		public Price getTotal() {
+			return new Price(-762);
+		}
 	}
 
 	public interface Model {
@@ -37,7 +41,6 @@ public class HandleTotalKeyTest {
 				will(returnValue(sale));
 
 				oneOf(customerViewableCashRegisterDisplay).displayTotal(sale);
-
 			}
 		});
 
