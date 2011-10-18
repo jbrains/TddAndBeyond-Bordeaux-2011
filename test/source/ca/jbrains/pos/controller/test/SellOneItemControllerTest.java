@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.jbrains.pos.controller.SaleController;
+import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Model;
 import ca.jbrains.pos.model.Catalog;
 import ca.jbrains.pos.model.Price;
 import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
@@ -15,6 +16,8 @@ import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 public class SellOneItemControllerTest {
 	private Mockery mockery = new Mockery();
 
+	private Model model = mockery.mock(Model.class);
+	
 	@Test
 	public void productFound() throws Exception {
 		final Catalog catalog = mockery.mock(Catalog.class);
@@ -33,7 +36,7 @@ public class SellOneItemControllerTest {
 			}
 		});
 
-		new SaleController(catalog, display).onBarcode("12345");
+		new SaleController(catalog, model, display).onBarcode("12345");
 	}
 
 	@Test
@@ -54,7 +57,7 @@ public class SellOneItemControllerTest {
 			}
 		});
 
-		new SaleController(catalog, display).onBarcode("12345");
+		new SaleController(catalog, model, display).onBarcode("12345");
 	}
 
 	@Test
@@ -69,6 +72,6 @@ public class SellOneItemControllerTest {
 			}
 		});
 
-		new SaleController(null, display).onBarcode("");
+		new SaleController(null, model, display).onBarcode("");
 	}
 }

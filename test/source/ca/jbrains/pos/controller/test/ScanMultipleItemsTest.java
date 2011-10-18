@@ -51,7 +51,7 @@ public class ScanMultipleItemsTest {
 			}
 		});
 
-		SaleController saleController = new SaleController(catalog, display);
+		SaleController saleController = new SaleController(catalog, null, display);
 		saleController.onBarcode("12345");
 		saleController.onBarcode("23456");
 		saleController.onBarcode("34567");

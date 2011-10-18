@@ -1,8 +1,10 @@
 package ca.jbrains.pos.view;
 
+import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Sale;
 import ca.jbrains.pos.model.Price;
 
-public class FrenchFormatAndCanvasDisplay implements CustomerViewableCashRegisterDisplay {
+public class FrenchFormatAndCanvasDisplay implements
+		CustomerViewableCashRegisterDisplay {
 	private Canvas canvas;
 
 	public FrenchFormatAndCanvasDisplay(Canvas canvas) {
@@ -22,6 +24,11 @@ public class FrenchFormatAndCanvasDisplay implements CustomerViewableCashRegiste
 	@Override
 	public void displayEmptyBarcodeMessage() {
 		canvas.printMessage("Scanning error: empty barcode");
+	}
+
+	@Override
+	public void displayTotal(Sale sale) {
+		throw new UnsupportedOperationException("You didn't implement me");
 	}
 
 }

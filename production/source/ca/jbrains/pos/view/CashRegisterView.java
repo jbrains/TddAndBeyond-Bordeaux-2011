@@ -1,5 +1,6 @@
 package ca.jbrains.pos.view;
 
+import ca.jbrains.pos.controller.test.HandleTotalKeyTest.Sale;
 import ca.jbrains.pos.model.Price;
 
 
@@ -25,6 +26,9 @@ public class CashRegisterView implements CustomerViewableCashRegisterDisplay {
 	@Override
 	public void displayEmptyBarcodeMessage() {
 		canvas.printMessage(textFormat.format(new EmptyBarcodeMessage()));
+	}
+
+	public void displayTotal(Sale sale) {
 	}
 
 }

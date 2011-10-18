@@ -16,7 +16,7 @@ public class Driver {
 	public static void main(String[] args) {
 		PrintWriter output = new PrintWriter(System.out, true);
 
-		Catalog model = new InMemoryCatalog(
+		Catalog catalog = new InMemoryCatalog(
 				new HashMap<String, Price>() {
 					{
 						put("12345", Price.euro(12));
@@ -28,7 +28,7 @@ public class Driver {
 		CashRegisterView view = new CashRegisterView(new FrenchTextFormat(),
 				new PrintWriterCanvas(output));
 		
-		SaleController saleController = new SaleController(model, view);
+		SaleController saleController = new SaleController(catalog, null, view);
 		saleController.onBarcode("12345");
 		saleController.onBarcode("23456");
 		saleController.onBarcode("34567");
