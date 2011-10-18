@@ -1,9 +1,11 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.view;
 
 import java.util.Locale;
 
+import ca.jbrains.pos.model.Price;
 
-public class FrenchTextFormat implements TextFormat {
+
+public final class FrenchTextFormat implements TextFormat {
 	@Override
 	public String format(Price price) {
 		return String.format(Locale.FRANCE, "EUR %.2f",

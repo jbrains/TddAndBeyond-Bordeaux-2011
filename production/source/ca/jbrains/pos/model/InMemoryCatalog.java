@@ -1,4 +1,4 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.model;
 
 import java.util.Map;
 

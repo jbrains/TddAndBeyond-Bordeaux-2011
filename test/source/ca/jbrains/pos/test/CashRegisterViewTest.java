@@ -7,10 +7,10 @@ import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.jbrains.pos.Canvas;
-import ca.jbrains.pos.CashRegisterView;
-import ca.jbrains.pos.Price;
-import ca.jbrains.pos.TextFormat;
+import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.view.Canvas;
+import ca.jbrains.pos.view.CashRegisterView;
+import ca.jbrains.pos.view.TextFormat;
 
 @RunWith(JMock.class)
 public class CashRegisterViewTest {

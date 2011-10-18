@@ -1,6 +1,8 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.view;
 
 import java.util.Locale;
+
+import ca.jbrains.pos.model.Price;
 
 public final class CanadianEnglishTextFormat implements TextFormat {
 	@Override

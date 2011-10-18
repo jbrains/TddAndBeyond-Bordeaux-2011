@@ -7,10 +7,10 @@ import java.io.StringWriter;
 
 import org.junit.Test;
 
-import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
-import ca.jbrains.pos.FrenchFormatAndCanvasDisplay;
-import ca.jbrains.pos.Price;
-import ca.jbrains.pos.PrintWriterCanvas;
+import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
+import ca.jbrains.pos.view.FrenchFormatAndCanvasDisplay;
+import ca.jbrains.pos.view.PrintWriterCanvas;
 import ca.jbrains.util.Lines;
 
 import com.google.common.collect.Lists;

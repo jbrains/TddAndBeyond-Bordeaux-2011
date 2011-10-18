@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ca.jbrains.pos.FrenchTextFormat;
-import ca.jbrains.pos.Price;
+import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.view.FrenchTextFormat;
 
 public class FrenchTextFormatTest {
 	@Test

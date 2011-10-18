@@ -1,4 +1,6 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.view;
+
+import ca.jbrains.pos.model.Price;
 
 public class FrenchFormatAndCanvasDisplay implements CustomerViewableCashRegisterDisplay {
 	private Canvas canvas;

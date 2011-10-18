@@ -1,4 +1,4 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.view;
 
 public class EmptyBarcodeMessage {
 }

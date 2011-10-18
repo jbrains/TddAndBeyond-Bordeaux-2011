@@ -5,8 +5,8 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import ca.jbrains.pos.Catalog;
-import ca.jbrains.pos.Price;
+import ca.jbrains.pos.model.Catalog;
+import ca.jbrains.pos.model.Price;
 
 
 public abstract class CatalogContract {

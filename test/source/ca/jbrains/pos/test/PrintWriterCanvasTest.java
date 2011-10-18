@@ -7,7 +7,7 @@ import java.io.StringWriter;
 
 import org.junit.Test;
 
-import ca.jbrains.pos.PrintWriterCanvas;
+import ca.jbrains.pos.view.PrintWriterCanvas;
 
 public class PrintWriterCanvasTest {
 	@Test

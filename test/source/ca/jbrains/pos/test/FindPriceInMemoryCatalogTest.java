@@ -2,9 +2,9 @@ package ca.jbrains.pos.test;
 
 import java.util.Collections;
 
-import ca.jbrains.pos.Catalog;
-import ca.jbrains.pos.InMemoryCatalog;
-import ca.jbrains.pos.Price;
+import ca.jbrains.pos.model.Catalog;
+import ca.jbrains.pos.model.InMemoryCatalog;
+import ca.jbrains.pos.model.Price;
 
 
 public class FindPriceInMemoryCatalogTest extends CatalogContract {

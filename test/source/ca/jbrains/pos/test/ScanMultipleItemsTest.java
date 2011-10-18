@@ -10,10 +10,10 @@ import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.jbrains.pos.Catalog;
-import ca.jbrains.pos.CustomerViewableCashRegisterDisplay;
-import ca.jbrains.pos.Price;
-import ca.jbrains.pos.SaleController;
+import ca.jbrains.pos.controller.SaleController;
+import ca.jbrains.pos.model.Catalog;
+import ca.jbrains.pos.model.Price;
+import ca.jbrains.pos.view.CustomerViewableCashRegisterDisplay;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;

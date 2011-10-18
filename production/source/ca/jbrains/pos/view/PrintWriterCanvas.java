@@ -1,4 +1,4 @@
-package ca.jbrains.pos;
+package ca.jbrains.pos.view;
 
 import java.io.PrintWriter;
 
