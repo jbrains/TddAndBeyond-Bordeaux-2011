@@ -1,4 +1,4 @@
-package ca.jbrains.pos.test;
+package ca.jbrains.pos.model.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

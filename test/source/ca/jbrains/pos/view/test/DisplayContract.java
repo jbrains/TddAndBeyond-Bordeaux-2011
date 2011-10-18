@@ -1,4 +1,4 @@
-package ca.jbrains.pos.test;
+package ca.jbrains.pos.view.test;
 
 import org.junit.Test;
 

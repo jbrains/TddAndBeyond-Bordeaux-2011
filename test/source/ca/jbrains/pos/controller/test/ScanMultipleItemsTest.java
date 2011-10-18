@@ -1,4 +1,4 @@
-package ca.jbrains.pos.test;
+package ca.jbrains.pos.controller.test;
 
 import java.util.Arrays;
 import java.util.List;

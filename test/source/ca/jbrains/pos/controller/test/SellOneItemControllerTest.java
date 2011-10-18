@@ -1,4 +1,4 @@
-package ca.jbrains.pos.test;
+package ca.jbrains.pos.controller.test;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
